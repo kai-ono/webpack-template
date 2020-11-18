@@ -1,0 +1,32 @@
+body {
+  color: $colorMain;
+  font-family: "Hiragino Kaku Gothic Std", sans-serif;
+  line-height: 1.4;
+}
+
+.l-header {
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+}
+
+.l-sticky {
+  position: sticky;
+  top: 0;
+  background-color: #222;
+  z-index: z(sticky);
+}
+
+.l-content {
+  overflow: hidden;
+
+  & > *:not(:first-child):not(.news) {
+    @include forPc {
+      margin-top: convertPxToVwPc(50);
+    }
+
+    @include forSp {
+      margin-top: convertPxToVwSp(30);
+    }
+  }
+}

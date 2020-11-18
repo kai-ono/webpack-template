@@ -1,0 +1,22 @@
+$colorMain: #3a3a3a;
+$colorSub: #6f6f6f;
+$colorGrey: #a1a1a1;
+$colorYellow: #ffcc02;
+$colorImportant: #f7547a;
+
+$z-map: (
+  sticky: true,
+  news: (
+    more: true,
+    list: true,
+    bg: true
+  ),
+  about: (
+    div: true,
+    illust: true
+  ),
+  app: (
+    element: true,
+    illust: true
+  )
+);

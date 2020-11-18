@@ -1,0 +1,633 @@
+.header {
+  @include container;
+
+  @include forPc {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  @include forSp {
+    padding: 8px 0;
+  }
+}
+
+.header-logo {
+  height: auto;
+
+  @include forSp {
+    display: block;
+    width: 192px;
+    margin: 0 auto;
+    color: $colorYellow;
+  }
+}
+
+.header-link {
+  @include forPc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+
+    > * {
+      display: flex;
+      align-items: center;
+
+      &::before {
+        content: "";
+        display: block;
+        margin-right: 4px;
+        border-top: 3px solid transparent;
+        border-bottom: 3px solid transparent;
+        border-left: 5px solid #a5007e;
+      }
+
+      &:not(:first-child) {
+        margin-left: 26px;
+      }
+    }
+  }
+
+  @include forSp {
+    display: none;
+  }
+}
+
+.sticky {
+  @include container;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include forPc {
+    @include container;
+
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  @include forSp {
+    padding: 6px 11px;
+  }
+}
+
+.sticky-title {
+  color: #fff;
+
+  @include forPc {
+    font-size: 16px;
+  }
+
+  @include forSp {
+    font-size: 14px;
+  }
+}
+
+.sticky-button {
+  @include mplus1;
+
+  border-radius: 4px;
+  background-color: $colorYellow;
+
+  @include forPc {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  @include forSp {
+    padding: 8px;
+    font-size: 12px;
+  }
+}
+
+.mainvisual {
+  text-align: center;
+  background-color: #ccc;
+
+  img {
+    width: min(100%, 640px);
+    height: auto;
+  }
+}
+
+.news {
+  position: relative;
+  z-index: z(news);
+
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    -moz-backdrop-filter: blur(25px);
+    z-index: z(news, bg);
+  }
+
+  @include forPc {
+    margin-top: -26px;
+    margin-bottom: 80px;
+    padding: 30px 76px;
+
+    &::before {
+      transform: translateX(-50px) translateY(-26px);
+    }
+  }
+
+  @include forSp {
+    margin-top: -30px;
+    padding: 20px 30px 30px;
+
+    &::before {
+      transform: translateX(-20px) translateY(-20px);
+    }
+  }
+}
+
+.news-list {
+  position: relative;
+  z-index: z(news, list);
+
+  > * {
+    display: block;
+    background-color: #e0e0e0;
+  }
+
+  @include forPc {
+    > * {
+      padding: 12px 20px;
+
+      &:not(:first-child) {
+        margin-top: 12px;
+      }
+    }
+  }
+
+  @include forSp {
+    > * {
+      padding: 12px 20px;
+
+      &:not(:first-child) {
+        margin-top: 12px;
+      }
+    }
+  }
+}
+
+.news-date {
+  @include forPc {
+    font-size: 10px;
+  }
+
+  @include forSp {
+    font-size: 10px;
+  }
+}
+
+.news-body {
+  @include forPc {
+    font-size: 14px;
+  }
+
+  @include forSp {
+    font-size: 12px;
+  }
+}
+
+.news-more {
+  @include mplus1;
+
+  position: absolute;
+  z-index: z(news, more);
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $colorMain;
+  color: $colorYellow;
+
+  &::after {
+    content: "";
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(../../dist/img/arrow.svg);
+    background-size: cover;
+  }
+
+  @include forPc {
+    right: 26px;
+    bottom: -26px;
+    padding: 10px 17px;
+    font-size: 14px;
+
+    &::after {
+      width: 5px;
+      height: 12px;
+      margin-left: 24px;
+    }
+  }
+
+  @include forSp {
+    right: 10px;
+    bottom: -16px;
+    padding: 8px 17px;
+    font-size: 14px;
+
+    &::after {
+      width: 5px;
+      height: 12px;
+      margin-left: 24px;
+    }
+  }
+}
+
+.about {
+  @include mplus1;
+  @include container;
+
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(../../dist/img/about_bg.jpg);
+  background-size: cover;
+  color: #fff;
+  line-height: 1.8;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(../../dist/img/about_illust@2x.png);
+    background-size: cover;
+    z-index: z(about, illust);
+  }
+
+  > div {
+    position: relative;
+    z-index: z(about, div);
+  }
+
+  @include forPc {
+    padding: 38px 27px 17px;
+
+    &::before {
+      right: 0;
+      width: 173px;
+      height: 227px;
+    }
+  }
+
+  @include forSp {
+    padding: 30px 16px;
+
+    &::before {
+      right: -40px;
+      width: 177px;
+      height: 232px;
+    }
+  }
+}
+
+.about-title {
+  font-weight: 800;
+
+  @include forPc {
+    font-size: 24px;
+  }
+
+  @include forSp {
+    text-align: center;
+    font-size: 24px;
+  }
+}
+
+.about-body {
+  @include forPc {
+    margin-top: 10px;
+    margin-right: 140px;
+    font-size: 16px;
+  }
+
+  @include forSp {
+    margin-top: 24px;
+    margin-right: 105px;
+    font-size: 14px;
+  }
+}
+
+.about-button {
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 4px;
+  background-color: $colorYellow;
+  color: $colorMain;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
+
+  @include forPc {
+    display: table;
+    margin-top: 28px;
+    padding: 12px;
+    font-size: 24px;
+  }
+
+  @include forSp {
+    display: block;
+    width: 230px;
+    margin-top: 28px;
+    padding: 12px;
+    font-size: 18px;
+  }
+}
+
+.movies {
+  @include container;
+}
+
+.movies-tab {
+  @include mplus1;
+
+  display: flex;
+  width: 100%;
+
+  > div {
+    flex-grow: 1;
+    text-align: center;
+    border-bottom: 4px solid $colorGrey;
+    color: $colorGrey;
+
+    &.is-active {
+      color: #f7547a;
+      border-bottom-color: currentColor;
+    }
+  }
+
+  @include forPc {
+    font-size: 20px;
+  }
+
+  @include forSp {
+    font-size: 20px;
+  }
+}
+
+.movies-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 10px 10px;
+  background-color: #ebebeb;
+
+  @include forPc {
+    padding: 0 50px 30px;
+  }
+
+  @include forSp {
+    padding: 0 10px 10px;
+  }
+}
+
+.movies-item {
+  img {
+    width: 100%;
+  }
+
+  @include forPc {
+    width: 140px;
+    margin-top: 40px;
+
+    &:not(:nth-child(5n)) {
+      margin-right: 40px;
+    }
+
+    img {
+      height: 196px;
+    }
+  }
+
+  @include forSp {
+    width: 110px;
+    margin-top: 10px;
+
+    &:not(:nth-child(3n)) {
+      margin-right: 12px;
+    }
+
+    img {
+      height: 154px;
+    }
+  }
+}
+
+.movies-status {
+  display: inline-block;
+  padding: 0 2px;
+  border-radius: 2px;
+  background-color: $colorImportant;
+  color: #fff;
+
+  @include forPc {
+    font-size: 10px;
+  }
+
+  @include forSp {
+    font-size: 10px;
+  }
+}
+
+.movies-title {
+  font-weight: bo;
+
+  @include forPc {
+    font-size: 14px;
+  }
+
+  @include forSp {
+    font-size: 12px;
+  }
+}
+
+.app {
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(../../dist/img/app_bg@2x.png);
+  background-size: cover;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    display: block;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: z(app, illust);
+  }
+
+  > * {
+    position: relative;
+    z-index: z(app, elemeent);
+  }
+
+  @include forPc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 120px;
+    margin-top: 100px !important;
+    padding: 0 76px;
+
+    &::before {
+      width: 361px;
+      height: 189px;
+      background-position: right bottom;
+      background-image: url(../../dist/img/app_illust_pc.png);
+      right: 114px;
+    }
+  }
+
+  @include forSp {
+    padding: 30px 50px;
+
+    &::before {
+      width: 100%;
+      height: 144px;
+      background-position: center;
+      background-image: url(../../dist/img/app_illust@2x.png);
+      left: 0;
+    }
+  }
+}
+
+.app-text {
+  @include mplus1;
+
+  text-align: center;
+  color: #fff;
+  font-weight: 800;
+
+  @include forPc {
+    font-size: 24px;
+  }
+
+  @include forSp {
+    font-size: 17px;
+  }
+}
+
+.app-button-sp {
+  display: none;
+
+  @include forSp {
+    display: block;
+    width: 174px;
+    height: 68px;
+    margin: 32px auto 0;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.app-button-pc {
+  display: none;
+
+  @include forPc {
+    @include mplus1;
+
+    display: flex;
+    align-items: center;
+    padding: 10px 24px;
+    border-radius: 20px;
+    background-color: $colorYellow;
+    font-size: 18px;
+
+    &::after {
+      content: "";
+      display: block;
+      margin-left: 4px;
+      border-top: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+      border-left: 6px solid $colorMain;
+    }
+  }
+}
+
+.footer-links {
+  @include container;
+
+  nav {
+    > *:not(:first-child) {
+      &::before {
+        content: "|";
+        display: inline-block;
+      }
+    }
+  }
+
+  p {
+    color: $colorSub;
+  }
+
+  @include forPc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 0;
+    font-size: 12px;
+
+    nav > *:not(:first-child) {
+      &::before {
+        padding: 0 6px;
+      }
+    }
+  }
+
+  @include forSp {
+    padding: 24px 10px;
+    font-size: 12px;
+
+    nav {
+      display: table;
+      margin: 0 auto;
+
+      > *:not(:first-child) {
+        &::before {
+          padding: 0 4px;
+        }
+      }
+    }
+
+    p {
+      margin-top: 24px;
+      text-align: right;
+    }
+  }
+}
+
+.copyright {
+  @include mplus1;
+
+  background-color: #222;
+  color: $colorSub;
+  text-align: center;
+
+  @include forPc {
+    padding: 15px 0;
+    font-size: 10px;
+  }
+
+  @include forSp {
+    padding: 18px 50px;
+    font-size: 10px;
+  }
+}
