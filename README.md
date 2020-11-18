@@ -1,6 +1,7 @@
 # webpack-template
 
 ## プレビュー（gh-pages）
+https://kai-ono.github.io/webpack-template/dist/
 
 ## コマンド
 **Watch & ローカルサーバ起動**  
